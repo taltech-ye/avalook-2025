@@ -10,16 +10,16 @@
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Avalöök 25'" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="site.webmanifest" />
         <meta property="og:title" content="Avalöögi Orienteerumine 2025">
         <meta property="og:description" content="Registreeri või vaata punkte selle aasta Avalöögil!">
-        <meta property="og:image" content="https://taltech-ye.github.io/avalook-2025/avalook_banner.jpg>
-        <meta property=" og:url" content="https://taltech-ye.github.io/avalook-2025/">
+        <meta property="og:image" content="https://taltech-ye.github.io/avalook-2025/avalook_banner.jpg">
+        <meta property="og:url" content="https://taltech-ye.github.io/avalook-2025/">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Avalöögi Orienteerumine 2025">
@@ -36,7 +36,7 @@
             <div class="left-section">
                 <h2>Punktide asukohad</h2>
                 <a href="https://www.google.com/maps/d/viewer?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis" target="_blank"
-                    rel="noopener" class="section-btn map-btn">VAATA PUNKTE</a>
+                    rel="noopener" class="section-btn map-btn" id="map-btn">VAATA PUNKTE</a>
                 <iframe class="responsive-embed"
                     src="https://www.google.com/maps/d/embed?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis&amp;ehbc=2E312F"
                     allowfullscreen title="Avalöögi orienteerumise punktide kaart"></iframe>
@@ -63,12 +63,22 @@
             <div class="right-section">
                 <h2>Registreerimine ja tegevused</h2>
                 <a href="https://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit?usp=drivesdk"
-                    target="_blank" rel="noopener" class="section-btn register-btn">REGISTREERI PUNKT</a>
+                    target="_blank" rel="noopener" class="section-btn register-btn" id="register-btn">REGISTREERI
+                    PUNKT</a>
                 <iframe class="responsive-embed"
                     src="https://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit?gid=0#gid=0"
                     title="Avalöögi Orienteerumine Registreerimine 2025" allowfullscreen></iframe>
             </div>
         </div>
+        <script>
+            // Simple mobile detection to open Google Sheets and Google Maps apps if available
+            if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                document.getElementById('register-btn').href =
+                    'googlesheets://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit';
+                document.getElementById('map-btn').href =
+                    'comgooglemaps://?q=https://www.google.com/maps/d/viewer?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis';
+            }
+        </script>
     </body>
 
 </html>
