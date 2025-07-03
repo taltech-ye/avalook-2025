@@ -186,8 +186,8 @@ h5 {
     }
 
     .responsive-embed {
-        min-height: 220px;
-        height: 30vh;
+        min-height: 100vh;
+        height: 100vh;
         aspect-ratio: 4 / 3;
         margin-top: 1rem;
     }
