@@ -71,12 +71,41 @@
             </div>
         </div>
         <script>
-            // Simple mobile detection to open Google Sheets and Google Maps apps if available
-            if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                document.getElementById('register-btn').href =
-                    'googlesheets://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit';
-                document.getElementById('map-btn').href =
-                    'comgooglemaps://?q=https://www.google.com/maps/d/viewer?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis';
+            function openWithFallback(appUrl, webUrl) {
+                var timeout;
+                var opened = false;
+                // Try to open the app
+                window.location = appUrl;
+                // If not opened in 800ms, open the web link
+                timeout = setTimeout(function () {
+                    if (!opened) window.open(webUrl, '_blank');
+                }, 800);
+                // If the page is hidden (app opened), clear the timeout
+                document.addEventListener('visibilitychange', function () {
+                    if (document.hidden) {
+                        opened = true;
+                        clearTimeout(timeout);
+                    }
+                });
+            }
+
+            var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                document.getElementById('register-btn').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openWithFallback(
+                        'googlesheets://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit',
+                        'https://docs.google.com/spreadsheets/d/13dgsnA8EI7erGE6KkjciGq_eltuqnIqR30j-V1g5jgA/edit?usp=drivesdk'
+                    );
+                });
+                document.getElementById('map-btn').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openWithFallback(
+                        'comgooglemaps://?q=https://www.google.com/maps/d/viewer?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis',
+                        'https://www.google.com/maps/d/viewer?mid=13fX0r-drQBHVTRtH8bZPAmLAHTu-Kis'
+                    );
+                });
             }
         </script>
     </body>
