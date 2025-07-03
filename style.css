@@ -16,10 +16,10 @@ body {
 }
 
 .left-section {
-    flex: 0 0 auto;
-    max-width: none;
     background: #fff;
     color: #111;
+    flex: 0 0 auto;
+    max-width: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,10 +29,10 @@ body {
 }
 
 .right-section {
-    flex: 1 1 100%;
-    max-width: 100%;
     background: #fff;
     color: #111;
+    flex: 1 1 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +60,7 @@ body {
     align-items: flex-start;
     width: 100%;
     max-width: 350px;
-    gap: 2rem;
+    gap: 1rem;
     text-align: left;
 }
 
@@ -75,16 +75,6 @@ body {
     font-size: 2.5rem;
     color: #222;
     margin-right: 0.5rem;
-}
-
-.pin-item h5 {
-    font-family: 'Montserrat', 'Proxima Nova', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #111;
-    margin: 0;
-    letter-spacing: 0.01em;
-    text-align: left;
 }
 
 .right-section h2 {
@@ -137,6 +127,48 @@ h5 {
     text-align: left;
 }
 
+.section-btn {
+    display: inline-block;
+    padding: 0.7em 1.5em;
+    border-radius: 8px;
+    font-family: 'Montserrat', 'Proxima Nova', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    margin: 0.5rem 0 1rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: background 0.2s;
+}
+
+.map-btn {
+    background: #4dbed2;
+    color: #fff;
+}
+
+.map-btn:hover,
+.map-btn:focus {
+    background: #399eb0;
+}
+
+.register-btn {
+    background: #e4067e;
+    color: #fff;
+}
+
+.register-btn:hover,
+.register-btn:focus {
+    background: #c1056a;
+}
+
+.mobile-register-btn {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
@@ -168,27 +200,29 @@ h5 {
     }
 
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     h2 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         margin: 1.2rem 0 0.7rem 0;
     }
 
     h3 {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
         margin: 0.7rem 0 0.5rem 0;
     }
 
     h5 {
-        font-size: 0.75rem;
+        font-size: 1rem;
     }
 
     .responsive-embed {
-        min-height: 100vh;
-        height: 100vh;
-        aspect-ratio: 4 / 3;
-        margin-top: 1rem;
+        min-height: 40vh;
+        height: 40vh;
+    }
+
+    .right-section .responsive-embed {
+        display: none;
     }
 }
